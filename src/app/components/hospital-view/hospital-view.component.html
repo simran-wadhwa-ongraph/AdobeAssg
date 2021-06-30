@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1 style="color: white; margin-left: 406px;">HOSPITAL MANAGEMENT SYSTEM</h1>
+</div>
+<mat-card style="width: 83%; margin-left: 103px; background-color: lightblue;">
+  <div>
+    <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="sortByName()">Sort By Hospital Name</button>
+  </div>
+  <ngx-datatable class="material " [columnMode]="'force'" [headerHeight]="50" [footerHeight]="100" [rowHeight]="50"
+    [scrollbarV]="false" [scrollbarH]="false" rowHeight="auto" [limit]="6" [rows]="rows">
+
+    <!-- <ngx-datatable-column name="ID" [width]="30"></ngx-datatable-column> -->
+    <ngx-datatable-column name="S No.">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+        {{rowIndex+1}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Hospital Name" [width]="80">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <div class="col_ellipsis">{{row.hospitalname}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Contact Number" [width]="80">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <div class="col_ellipsis">{{row.contactnumber}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Action" [width]="50">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <i class="material-icons color_sky" (click)="fetchDepForHospital(row.hospitalname)">visibility</i>
+        <i class="material-icons color_sky" (click)='deleteHospitalData(row)'>delete</i>
+        <i class="material-icons color_sky" (click)='editHospitalData(row)'>edit</i>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+  <div style="display: flex;">
+    <div>
+      <input type='text' [(ngModel)]="hospitalName" placeholder='Hospital Name' />
+    </div>
+    <div>
+      <input type='text' [(ngModel)]="contactNumber" placeholder='contactNumber' />
+    </div>
+    <div>
+      <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="addHospitalData(rowIndex)">Add
+        Data</button>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="clear()">clear</button>
+    </div>
+  </div>
+
+</mat-card>
+<div class="page-header">
+  <h1 style="color: white; margin-left: 406px;">copyright 2021 hospital</h1>
+</div>

@@ -1,0 +1,33 @@
+<div *ngIf="data.type == 1" style="display: flex;">
+  <div>
+    <input type='text' [(ngModel)]="hospitalName" placeholder='Hospital Name' />
+  </div>
+  <div style="margin-left: 10px;">
+    <input type='text' [(ngModel)]="contactNumber" placeholder='contactNumber' />
+  </div>
+  <div>
+    <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="editHospitalData()">Edit
+      Data</button>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="clear()">clear</button>
+  </div>
+</div>
+<div *ngIf="data.type == 2" style="display: flex;">
+  <div>
+    <input type='text' [(ngModel)]="departmentName" placeholder='department Name' />
+  </div>
+  <div style="margin-left: 10px;">
+    <input type='text' [(ngModel)]="head" placeholder='Head of Department' />
+  </div>
+  <div style="margin-left: 10px;">
+    <input type='text' [(ngModel)]="contactNumber" placeholder='Contact Number' />
+  </div>
+  <div>
+    <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="editDepartmentData()">Edit
+      Data</button>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="clear()">clear</button>
+  </div>
+</div>
